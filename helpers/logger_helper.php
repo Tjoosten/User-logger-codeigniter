@@ -3,16 +3,9 @@
   /**
    * @package Logger
    * @author Tim Joosten
-   * @license Closed source license
+   * @license MIT
    * @since 2015
    */
-
-   /**
-    * Constructor
-    */
-   function __construct() {
-     parent::__construct();
-   }
 
    /**
     * log_user
