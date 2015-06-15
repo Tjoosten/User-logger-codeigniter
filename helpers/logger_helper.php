@@ -21,23 +21,23 @@
       $CI =& get_instance();
       $CI->load->config('logger_config', TRUE);
 
-      $Date = strtotime(date($CI->config->item('date_format')));
+      $date = strtotime(date($CI->config->item('date_format')));
 
-      $Filepath =  './application/logs/log-'. $Date .'.php';
+      $file_path =  './application/logs/log-'. $date .'.php';
      
-      $LogMessage = '['. date($CI->config->item('time_format')). ']: '. $user .' --> '. $message ."\n";
+      $log_message = '['. date($CI->config->item('time_format')). ']: '. $user .' --> '. $message ."\n";
       
-      if(! file_exists($Filepath)) {
+      if(! file_exists($file_path)) {
         // File doesn't exists so we need to first write it.
-        $LogMessage = "<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>\n\n".$LogMessage;
+        $log_message = "<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>\n\n".$log_message;
       }
       // Open the log file
-      $Logfile = fopen($Filepath, "a");
-      chmod($Filepath, $CI->config->item('chmod'));
+      $log_file = fopen($file_path, "a");
+      chmod($file_path, $CI->config->item('chmod'));
       // Write to the file.
-      if(fwrite($Logfile, $LogMessage))
+      if(fwrite($log_file, $log_message))
       {
-        fclose($Logfile)
+        fclose($log_file)
         return TRUE;
       }
       return FALSE;
