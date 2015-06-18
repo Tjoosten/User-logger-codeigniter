@@ -17,7 +17,7 @@
    *
    */
 
-   $config['chmod']       = "777";
+   $config['chmod']       = "755";
 
    $config['date_format'] = "Y/m/d";
    $config['time_format'] = "h:i:sa";
