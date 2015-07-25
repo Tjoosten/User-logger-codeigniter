@@ -54,7 +54,10 @@ Class logger
      */
     function db_user_log($user, $message)
     {
+        $this->ci->load->model('logger_model', 'logger');
+        $this->logger->insert_log();
 
+        return true;
     }
 
 }
